@@ -42,7 +42,23 @@
 - **Expected**: No formatting errors (optional if Prettier config is strict)
 - **Failure**: Files fail formatting check
 
-### 6. Git Repository is Initialized
+### 6. Testing Framework Works
+**Test**: Run `npm run test`
+- **Expected**: Vitest runs all tests and reports results
+  - Test files discovered in `src/__tests__/*.test.ts`
+  - All tests pass (no failures)
+  - Output shows test count and duration
+- **Failure**: Tests fail, Vitest doesn't run, or test files not discovered
+
+### 6a. Test Scripts Available
+**Test**: Verify package.json has test scripts
+- **Expected**: 
+  - `npm run test` - Runs tests once
+  - `npm run test:watch` - Runs in watch mode
+  - `npm run test:coverage` - Generates coverage reports
+- **Failure**: Scripts missing or incorrect
+
+### 7. Git Repository is Initialized
 **Test**: Run `git status`
 - **Expected**: Project is a Git repo; `.gitignore` excludes `node_modules/` and build output
 - **Failure**: Not a Git repo, or critical files are tracked when they shouldn't be
@@ -56,16 +72,27 @@
    - Verify page displays the header with "AgentClinic" branding
    - Verify "AgentClinic is open for business" message is visible
    - Verify HTML is properly rendered (no raw tags visible)
-4. **Hot-reload**: Edit the home page message in `src/pages/home.tsx`, save, refresh browser — confirm change appears
+4. **Hot-reload**: Edit the home page message in `src/pages/Home.tsx`, save, refresh browser — confirm change appears
 5. **Build**: Run `npm run build`, verify `dist/` is populated with `.js` files
-6. **Types**: Open `src/pages/home.tsx`, hover over JSX element — confirm type hints are visible (component props, children type, etc.)
+6. **Types**: Open `src/pages/Home.tsx`, hover over JSX element — confirm type hints are visible (component props, children type, etc.)
+7. **Tests**: Run `npm run test`, verify:
+   - Vitest discovers and runs all test files
+   - All tests pass (8/8 in components.test.ts)
+   - No errors in output
+8. **Coverage**: Run `npm run test:coverage`, verify coverage reports are generated
+9. **Watch Mode**: Run `npm run test:watch`, modify a test file, verify Vitest re-runs automatically
 
 ## Artifacts to Check
 
-- `package.json` — lists `hono`, `tsx`, `typescript` dependencies
+- `package.json` — lists `hono`, `tsx`, `typescript`, `vitest` dependencies; includes test scripts
 - `tsconfig.json` — `strict: true`, sensible compiler options
 - `src/index.ts` — defines `/` route that renders the home page component, no obvious errors
-- `src/pages/home.tsx` — Hono JSX component with proper semantic HTML structure (`<header>`, `<main>`, `<title>`, etc.)
+- `src/pages/Home.tsx` — Hono JSX component using Layout wrapper
+- `src/components/Layout.tsx` — Master layout composing Header, Main, Footer
+- `src/components/Header.tsx`, `Main.tsx`, `Footer.tsx` — Sub-components with TypeScript typing
+- `src/styles/global.css` — External CSS file with responsive design
+- `src/__tests__/components.test.ts` — Test file with 8+ tests for components
+- `vitest.config.ts` — Vitest configuration with Node environment and v8 coverage
 - `.gitignore` — excludes `node_modules/`, `dist/`, `.DS_Store`, etc.
 
 ## Definition of Done

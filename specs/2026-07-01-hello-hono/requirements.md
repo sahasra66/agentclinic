@@ -10,12 +10,16 @@ This phase establishes the foundation for AgentClinic: a working Hono server wit
 - Hono JSX component for the home page layout
 - Development and production build tooling
 - Type safety verification end-to-end
+- Testing framework setup (Vitest) with sample tests
+- Test scripts and CI/CD ready test commands
+- Layout components (Header, Main, Footer) with Hono JSX
+- External CSS file for styling with responsive design
 
 ### Out of Scope
 - Database setup (Phase 3)
-- UI layout or styling (Phase 2)
+- Advanced testing (fixtures, mocking, integration tests beyond samples)
+- End-to-end testing or Selenium tests
 - Any business logic beyond the single route
-- Testing infrastructure (can come in hardening phase)
 
 ## Key Decisions
 
@@ -29,13 +33,25 @@ This phase establishes the foundation for AgentClinic: a working Hono server wit
 ```
 .
 ├── src/
-│   ├── index.ts              # Hono app entry point
-│   └── pages/
-│       └── home.tsx          # Home page JSX component
+│   ├── index.ts                 # Hono app entry point
+│   ├── pages/
+│   │   └── Home.tsx             # Home page JSX component
+│   ├── components/
+│   │   ├── Layout.tsx           # Master layout component
+│   │   ├── Header.tsx           # Header component
+│   │   ├── Main.tsx             # Main content wrapper
+│   │   └── Footer.tsx           # Footer component
+│   ├── styles/
+│   │   └── global.css           # Global CSS styling
+│   └── __tests__/
+│       └── components.test.ts   # Component tests
+├── dist/                         # Build output
 ├── package.json
 ├── tsconfig.json
+├── vitest.config.ts             # Vitest configuration
 ├── .gitignore
-└── .prettierrc                # Optional: enforce consistent formatting
+├── .prettierrc                   # Code formatter config
+└── README.md                     # Project documentation
 ```
 
 ### Development Workflow

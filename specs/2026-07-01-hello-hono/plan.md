@@ -63,3 +63,20 @@
 - Update `Home.tsx` to use the new `Layout` component
 - Remove inline styles and import external CSS file
 - Verify the page renders with external stylesheet
+
+## 11. Testing Infrastructure Setup
+- Install Vitest test framework and @vitest/ui
+- Create `vitest.config.ts` with Node environment and v8 coverage
+- Set up test discovery for `src/**/*.test.ts` files
+- Add test scripts to `package.json`:
+  - `npm run test` - Run all tests
+  - `npm run test:watch` - Run in watch mode
+  - `npm run test:coverage` - Generate coverage reports
+- Create sample test file: `src/__tests__/components.test.ts`
+- Verify all tests pass before deployment
+
+## 12. Documentation Updates
+- Update specs/tech-stack.md with Vitest details
+- Document testing workflow in README
+- Update project structure documentation
+- Add testing guidelines for future phases
