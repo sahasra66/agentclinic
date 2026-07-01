@@ -1,11 +1,33 @@
 import { Hono } from 'hono';
 import { createServer } from 'http';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 import { Home } from './pages/Home';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = new Hono();
 
+// Load CSS file
+const cssPath = join(__dirname, 'styles', 'global.css');
+let cssContent = '';
+try {
+  cssContent = readFileSync(cssPath, 'utf-8');
+  console.log('✓ Loaded CSS from:', cssPath);
+} catch (err) {
+  console.warn('Warning: Could not load global.css from', cssPath, err);
+}
+
 app.get('/', (c) => {
   return c.html(Home());
+});
+
+app.get('/styles/global.css', (c) => {
+  return c.text(cssContent, {
+    headers: { 'Content-Type': 'text/css; charset=UTF-8' },
+  });
 });
 
 const port = 3000;

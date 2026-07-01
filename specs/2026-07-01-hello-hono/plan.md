@@ -44,3 +44,22 @@
 - Initialize Git repository (if not already done)
 - Create initial commit with project structure
 - Create feature branch for next phase if applicable
+
+## 8. Layout Component Architecture
+- Create reusable `Layout.tsx` component that composes Header, Main, and Footer
+- Break down layout into three sub-components:
+  - `Header.tsx` - navigation and branding (dark background)
+  - `Main.tsx` - content area (wraps page content)
+  - `Footer.tsx` - footer section with links and info
+- Each component should have proper TypeScript typing
+
+## 9. Stylesheet Creation
+- Create `src/styles/global.css` with semantic HTML styling
+- Include base styles for `html`, `body`, `header`, `main`, `footer`
+- Add responsive layout styles and typography
+- Link stylesheet in the HTML `<head>` as an external file served from `public/` or inline
+
+## 10. Home Page Integration
+- Update `Home.tsx` to use the new `Layout` component
+- Remove inline styles and import external CSS file
+- Verify the page renders with external stylesheet
