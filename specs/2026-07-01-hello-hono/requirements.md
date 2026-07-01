@@ -1,8 +1,8 @@
-# Requirements: Phase 1 — Hello Hono
+# Requirements: Phase 1 & 2 — Hello Hono with Responsive Design
 
 ## Scope
 
-This phase establishes the foundation for AgentClinic: a working Hono server with TypeScript configuration that can be extended through later phases.
+This phase establishes the foundation for AgentClinic: a working Hono server with TypeScript configuration and fully responsive web design that can be extended through later phases.
 
 ### In Scope
 - Node.js + TypeScript + Hono project skeleton
@@ -13,7 +13,15 @@ This phase establishes the foundation for AgentClinic: a working Hono server wit
 - Testing framework setup (Vitest) with sample tests
 - Test scripts and CI/CD ready test commands
 - Layout components (Header, Main, Footer) with Hono JSX
-- External CSS file for styling with responsive design
+- External CSS file for styling with **mobile-first responsive design**
+- **Responsive Design Requirements:**
+  - Mobile-first approach (base styles optimized for mobile)
+  - Media queries for tablet (480px+) and desktop (768px+) breakpoints
+  - Flexible layouts using Flexbox
+  - Fluid typography with rem units
+  - Touch-friendly interface (44px+ minimum tap targets)
+  - Responsive spacing and padding
+  - Viewport meta tag for mobile browsers
 
 ### Out of Scope
 - Database setup (Phase 3)

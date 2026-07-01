@@ -1,6 +1,6 @@
 # AgentClinic
 
-A course project demonstrating spec-driven development with AI coding agents. Phases 1-2 establish a working Hono server with TypeScript configuration, layout components, styling, and comprehensive testing infrastructure.
+A course project demonstrating spec-driven development with AI coding agents. Phases 1-2 establish a working Hono server with TypeScript configuration, **fully responsive layout components**, mobile-first styling, and comprehensive testing infrastructure.
 
 ## Tech Stack
 
@@ -96,13 +96,36 @@ npm run test:watch       # Run tests in watch mode
 npm run test:coverage    # Generate coverage reports
 ```
 
-Tests are located in `src/__tests__/` and follow the `*.test.ts` naming convention. Sample tests for components are included.
+Tests are located in `src/__tests__/` and follow the `*.test.ts` naming convention.
 
 **Test Results:**
 - Test Framework: Vitest v1.0.0
 - Environment: Node.js
 - Coverage Provider: v8
-- Sample Tests: 8 tests for Header, Footer, Layout, and CSS styling
+- **Total Tests: 174** across 5 test suites
+- **Test Coverage:**
+  - Components: 8 tests
+  - Layout: 30 tests
+  - Pages: 31 tests
+  - Styling & Responsive Design: 60 tests
+  - Application & Server: 45 tests
+
+### Testing Responsive Design
+
+Tests include validation of:
+- Media query breakpoints (480px, 768px, 1024px)
+- Typography scaling across device sizes
+- Touch-friendly tap target sizing (44px minimum)
+- Flexbox layout responsiveness
+- Mobile-first base styles
+
+**Manual Testing:**
+1. Open `http://localhost:3000` on your phone (< 480px width)
+2. Resize browser to tablet size (480px - 767px)
+3. Test on desktop (768px+)
+4. Verify no horizontal scrolling at any size
+5. Check that text remains readable at all sizes
+6. Confirm links are easily tappable on mobile
 
 ## Available Routes
 
@@ -110,15 +133,33 @@ Tests are located in `src/__tests__/` and follow the `*.test.ts` naming conventi
 
 ## Features
 
+### Core Features
 - **Layout Architecture**: Reusable Header, Main, and Footer components
 - **Semantic HTML**: Proper structure with `<header>`, `<main>`, `<footer>`, and `<title>` tags
 - **Server-Side JSX**: Hono JSX components for dynamic page rendering
-- **External CSS**: Global stylesheet with responsive design and mobile-first approach
 - **TypeScript Strict Mode**: Full type safety end-to-end
 - **Hot-Reload Development**: Instant feedback with `tsx` during development
 - **Production Build**: Optimized compilation with `tsc` and source maps
-- **Testing Framework**: Vitest with sample tests and coverage reporting
+- **Testing Framework**: Vitest with 174+ tests and coverage reporting
+
+### Responsive Design
+- **Mobile-First Approach**: Base styles optimized for mobile devices
+- **Multiple Breakpoints**:
+  - Mobile: 0px - 479px (compact layout)
+  - Tablet: 480px - 767px (medium layout)
+  - Desktop: 768px+ (full layout)
+  - Large Desktop: 1024px+ (extended layout)
+- **Flexible Layouts**: Flexbox-based responsive components
+- **Fluid Typography**: rem-based font sizing that scales with viewport
+- **Touch-Friendly**: 44px+ minimum tap targets for mobile interaction
+- **Responsive Spacing**: Dynamic padding and margins at different breakpoints
+- **Viewport Configuration**: Proper meta tags for mobile browser scaling
+- **External CSS**: Global stylesheet with responsive design patterns
+
+### Development Features
 - **Development Scripts**: npm scripts for dev, build, test, and type-checking
+- **CSS Breakpoints**: Media queries for tablet and desktop optimization
+- **Print Styles**: Optimized styles for printing
 
 ## Project Status
 

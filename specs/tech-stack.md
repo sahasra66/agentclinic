@@ -41,13 +41,46 @@
   - `npm run test:watch` - Run tests in watch mode
   - `npm run test:coverage` - Generate coverage reports
 
-## Styling
+## Styling & Responsive Design
 
+### CSS Strategy
 - **CSS:** Plain CSS (no preprocessor)
   - Maintainable and framework-agnostic
-  - Responsive design with mobile-first approach
-  - Media queries for responsive breakpoints
-  - Semantic HTML for accessibility
+  - No build step required for CSS
+  - Served as external file for performance
+  - Full semantic HTML for accessibility
+
+### Responsive Design Principles
+- **Mobile-First Approach:**
+  - Base styles optimized for mobile devices (< 480px width)
+  - Progressive enhancement for larger screens
+  - Touch-friendly interface (minimum 44px tap targets)
+  
+- **Breakpoints:**
+  - **Mobile:** 0px - 479px (base styles, vertical layout)
+  - **Tablet:** 480px - 767px (medium adjustments, transitional layout)
+  - **Desktop:** 768px+ (full layout, horizontal arrangements)
+  - **Large Desktop:** 1024px+ (extended layouts, max-width constraints)
+
+- **Responsive Features:**
+  - Flexible layouts using Flexbox
+  - Fluid typography with rem units (scales with base font-size)
+  - Responsive spacing using relative units
+  - CSS media queries for targeted adjustments
+  - Flexible images and SVGs
+  - Viewport meta tag for mobile browsers
+
+- **CSS Units:**
+  - `rem` for typography and spacing (relative to root font-size)
+  - `%` for widths and flexible layouts
+  - `vh`/`vw` for viewport-relative sizing
+  - Avoid fixed pixel widths where possible
+
+- **Layout Techniques:**
+  - Flexbox for component layouts
+  - CSS Grid for complex layouts (future phases)
+  - Box-sizing: border-box for predictable sizing
+  - Max-width containers for content constraint
 
 ## Build & Production
 

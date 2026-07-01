@@ -29,6 +29,23 @@
   - Basic readability and proper HTML rendering (no raw HTML tags visible)
 - **Failure**: Blank page, 404, or incorrect content
 
+### 3b. Responsive Design Verification
+**Test**: View `http://localhost:PORT/` at multiple device sizes
+- **Expected - Mobile (< 480px):**
+  - Page uses full width with padding
+  - Header text is readable on small screen
+  - Footer links are touch-friendly (44px+ tap targets)
+  - No horizontal scrolling
+- **Expected - Tablet (480px - 767px):**
+  - Layout adjusts appropriately
+  - Margins and padding increase from mobile
+  - Font sizes scale up for readability
+- **Expected - Desktop (768px+):**
+  - Full layout with max-width constraint (1200px)
+  - Proper spacing between header, main, footer
+  - Content centered on wide screens
+- **Failure**: Broken layout at any breakpoint, unreadable text, horizontal scrolling
+
 ### 4. Types Work End-to-End
 **Test**: 
 - Open `src/index.ts` in your IDE
